@@ -1,0 +1,58 @@
+<div class="">
+  <app-header></app-header>
+  <div class="container-fluid">
+    <div class="row">
+      <app-sidebar></app-sidebar>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <h2>Launch Data</h2>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card text-white bg-success mb-3">
+              <div class="card-header">Upcoming</div>
+              <div class="card-body">
+                <h5 class="card-title">{{upcomingLaunchesData?.length}}</h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card text-white bg-secondary mb-3">
+              <div class="card-header">Past</div>
+              <div class="card-body">
+                <h5 class="card-title">{{pastLaunchesData?.length}}</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card text-white bg-info mb-3">
+              <div class="card-header">Total</div>
+              <div class="card-body">
+                <h5 class="card-title">{{allLaunchesData?.length}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="jumbotron">
+              <h4>Launchpad Locations</h4>
+              <app-map-view *ngIf="launchpadDetails" [launchpadDetails]="launchpadDetails"></app-map-view>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="jumbotron">
+              <h4>Launch Over Time</h4>
+              <app-bar-chart *ngIf="allLaunchesData" [allLaunchesData]="allLaunchesData"></app-bar-chart>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="jumbotron">
+              <h4>Launch Timeline</h4>
+              <app-timeline *ngIf="allLaunchesData" [allLaunchesData]="allLaunchesData"></app-timeline>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
